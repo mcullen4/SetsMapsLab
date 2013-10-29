@@ -1,11 +1,17 @@
 package common;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Startup {
 
@@ -89,34 +95,142 @@ public class Startup {
         
         
         //Lab 5
+//         Employee e1 = new Employee("Smith", "Joe", "555-55-5555");
+//         Employee e2 = new Employee("Doe", "John", "555-55-5555");
+//         Employee e3 = new Employee("Jones", "Sue", "666-55-5555");
+//         Employee e4 = new Employee("Moore", "Fred", "777-55-5555");
+//         
+//         Map <String, Employee> employees = new HashMap<String, Employee>();
+//         employees.put(e1.getSsn(),e1);
+//         employees.put(e2.getSsn(),e2);
+//         employees.put(e3.getSsn(),e3);
+//         employees.put(e4.getSsn(),e4);
+//         
+//         
+//         
+//         System.out.println(employees.size());
+//               
+//         
+//         //Employee activeEmployee = employees.get("666-55-5555");
+//         
+//         //System.out.println(activeEmployee.toString());
+//         
+//         
+//         for (Map.Entry<String, Employee> e : employees.entrySet()){
+//         System.out.println(e.getKey() + ": " + e.getValue());
+//         
+//         }
+//       
+//    }
+//       //Lab 6 using comparable
+//    Employee e1 = new Employee("Smith", "Joe", "555-55-5555");
+//         Employee e2 = new Employee("Doe", "John", "555-55-5555");
+//         Employee e3 = new Employee("Jones", "Sue", "666-55-5555");
+//         Employee e4 = new Employee("Moore", "Fred", "777-55-5555");
+//         
+//         Map <String, Employee> employees = new TreeMap<String, Employee>();
+//         employees.put(e1.getSsn(),e1);
+//         employees.put(e2.getSsn(),e2);
+//         employees.put(e3.getSsn(),e3);
+//         employees.put(e4.getSsn(),e4);
+//         
+//         
+//         
+//         System.out.println(employees.size());
+//               
+//         
+//         //Employee activeEmployee = employees.get("666-55-5555");
+//         
+//         //System.out.println(activeEmployee.toString());
+//         
+//         
+//         for (Map.Entry<String, Employee> e : employees.entrySet()){
+//         System.out.println(e.getKey() + ": " + e.getValue());
+//         
+//         }
+//         
+//}
+         //Lab 6 using comparator
+//         Employee e1 = new Employee("Smith", "Joe", "555-55-5555");
+//         Employee e2 = new Employee("Doe", "John", "555-55-5555");
+//         Employee e3 = new Employee("Jones", "Sue", "777-55-5555");
+//         Employee e4 = new Employee("Amoore", "Fred", "666-55-5555");
+//         
+//         Map <String, Employee> employees = new TreeMap<String, Employee>();
+//         employees.put(e1.getSsn(),e1);
+//         employees.put(e2.getSsn(),e2);
+//         employees.put(e3.getSsn(),e3);
+//         employees.put(e4.getSsn(),e4);
+//         
+//         
+//         
+//         Collection<Employee> employeeCollection = employees.values();
+//        
+//        List<Employee> sortedList = new ArrayList<Employee>(employeeCollection);
+//        
+//        Collections.sort(sortedList, new EmployeeByLastName());
+//        for(Employee emp : sortedList) {
+//            System.out.println(emp);
+//         
+//}
+        
+       
+         //Lab 7 using comparable and iterator
+//         Employee e1 = new Employee("Smith", "Joe", "555-55-5555");
+//         Employee e2 = new Employee("Doe", "John", "555-55-5555");
+//         Employee e3 = new Employee("Jones", "Sue", "777-55-5555");
+//         Employee e4 = new Employee("Amoore", "Fred", "666-55-5555");
+//         
+//         Set<Employee> set = new TreeSet<Employee>();
+//         set.add(e1);
+//         set.add(e2);
+//         set.add(e3);
+//         set.add(e4);
+//         
+//           
+//         
+//         Iterator<Employee> iterator = set.iterator();
+//         while(iterator.hasNext()) {
+//         Employee employee = iterator.next();
+//         System.out.println(employee);
+//         }
+         
+         //Lab 7 using comparator and iterator
          Employee e1 = new Employee("Smith", "Joe", "555-55-5555");
          Employee e2 = new Employee("Doe", "John", "555-55-5555");
-         Employee e3 = new Employee("Jones", "Sue", "666-55-5555");
-         Employee e4 = new Employee("Moore", "Fred", "777-55-5555");
+         Employee e3 = new Employee("Jones", "Sue", "777-55-5555");
+         Employee e4 = new Employee("Amoore", "Fred", "666-55-5555");
          
-         Map <String, Employee> employees = new HashMap<String, Employee>();
-         employees.put(e1.getSsn(),e1);
-         employees.put(e2.getSsn(),e2);
-         employees.put(e3.getSsn(),e3);
-         employees.put(e4.getSsn(),e4);
+         Set<Employee> set = new TreeSet<Employee>();
+         set.add(e1);
+         set.add(e2);
+         set.add(e3);
+         set.add(e4);
          
+         Set<Employee> newSet = new TreeSet<Employee>(new EmployeeByLastName());
+         newSet.addAll(set);
+        
+           
          
-         
-         System.out.println(employees.size());
-               
-         
-         //Employee activeEmployee = employees.get("666-55-5555");
-         
-         //System.out.println(activeEmployee.toString());
-         
-         
-         for (Map.Entry<String, Employee> e : employees.entrySet()){
-         System.out.println(e.getKey() + ": " + e.getValue());
-         
+         Iterator<Employee> iterator = newSet.iterator();
+         while(iterator.hasNext()) {
+         Employee employee = iterator.next();
+         System.out.println(employee);
          }
-       
-    }
+         
+   }
+    
+//        Array <Employee> employeeArray = new Array<Employee>(set.toArray());
+//        List<Employee> employeeCollection = new ArrayList<Employee>(set);
+//        
+//        //List<Employee> sortedList = new ArrayList<Employee>(employeeCollection);
+//        
+//        Collections.sort(employeeCollection, new EmployeeByLastName());
+//        for(Employee emp : employeeCollection) {
+//            System.out.println(emp);
+         
 }
+    
         
         
         
